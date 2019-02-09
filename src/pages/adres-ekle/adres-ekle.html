@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-navbar color="positive">
+    <ion-title>Yeni Adres Ekle</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content no-bounce padding>
+  <ion-fab bottom right>
+    <button ion-fab (click)="FirmaAdresKaydet()">Kaydet</button>
+  </ion-fab>
+
+    <form [formGroup]="form" (ngSubmit)="SaveChanges(form.value)">
+    <ion-list>
+      <ion-row class="app-icon-container">
+        <ion-col text-center>
+          <img src="http://www.veribis.com.tr/wp-content/uploads/2016/05/veribisLogo.png" />
+      
+        </ion-col>
+      </ion-row>
+      <ion-item>
+        <ion-label class="item item-input item-stacked-label">
+          <ion-spinner name="bubbles" *ngIf="this.Ulke ==0"></ion-spinner>Ülke</ion-label>
+        <ion-select (ionChange)="getIllerim($event)"interface="action-sheet" formControlName="Country" name="Country">
+          <ion-option *ngFor="let list of this.Ulke;let i = index" [selected]="list.Id === 3460"  value={{list.County}}>{{list.Ulke}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-spinner name="bubbles" *ngIf=" this.Il ==0"></ion-spinner>İl</ion-label>
+        <ion-select (ionChange)="IlSecim($event)" okText="Seç" cancelText="Vazgeç" formControlName="County" name="County">
+          <ion-option *ngFor="let list of this.Il" value={{list.Id}}>{{list.Il}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <ion-spinner name="bubbles" *ngIf="this.Ilce ==0"></ion-spinner>İlçe</ion-label>
+        <ion-select (ionChange)="logla($event)" okText="Seç" cancelText="Vazgeç" formControlName="County1" name="County1">
+          <ion-option *ngFor="let list of this.Ilce" value={{list.Id}}>{{list.Ilce}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label class="item item-input item-stacked-label" floating>
+          <p style="font-weight: bold">Adres1</p>
+        </ion-label>
+        <ion-input type="text" id="Adres1" name="Address1" formControlName="Address1"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="item item-input item-stacked-label" floating>
+          <p style="font-weight: bold">Adres2</p>
+        </ion-label>
+        <ion-input type="text" id="Adres2" name="Address2" formControlName="Address2"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="item item-input item-stacked-label" floating>
+          <p style="font-weight: bold">Adres3</p>
+        </ion-label>
+        <ion-input type="text" id="Adres3" name="Address3" formControlName="Address3"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="item item-input item-stacked-label" floating>
+          <p style="font-weight: bold">Mevki</p>
+        </ion-label>
+        <ion-input type="text" id="Mevki" name="Mevki" formControlName="Mevki"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="item item-input item-stacked-label" floating>
+          <p style="font-weight: bold">Lokasyon</p>
+        </ion-label>
+          <ion-label class="item item-input">
+            <p style="font-weight: bold" ></p>
+          </ion-label>
+        <ion-input type="text" id="Location" name="Location" formControlName="Location" ng-readonly="all" [(ngModel)]="Location"></ion-input>
+      </ion-item>
+
+      <ion-buttons start>
+        <button ion-button full icon-only (click)="FirmaAdresKaydet()" color="primary">
+          <ion-icon name="book"></ion-icon>
+          Kaydet
+        </button>
+      </ion-buttons>
+
+      <ion-row class="sign-in-button-container">
+
+      </ion-row>
+
+    </ion-list>
+  </form>
+</ion-content>

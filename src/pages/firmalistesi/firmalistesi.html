@@ -1,0 +1,106 @@
+<!--
+  Generated template for the FirmalistesiPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+
+<ion-header>
+  <ion-navbar color="positive" class="bar bar-header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Firmalar Listesi</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="FirmaCagir()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <strong>Firmalar Listesi</strong> Start Theme
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="FirmaCagir()">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button tappable (click)="FirmaCagir()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn common-bg">
+  <ion-searchbar (ionInput)="filterItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-card *ngFor="let list of this.users;let i = index">
+
+      <ion-card-header style="background-color: #3b5998 !important; height:2; color: white;">
+        <p style="font-weight: bold; text-align: center; font-size: 14px; vertical-align:center; color: white;">
+        <!-- <ion-badge item-start color="dark">{{i+1}}</ion-badge> -->
+           {{ list.FirmaAdi }}
+           </p>
+      </ion-card-header>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" style="background-color: #F2F2F2 !important" 
+       type="item-text-wrap">
+  <!--      <ion-thumbnail item-start>
+          <img src="assets/imgs/logo.png">
+        </ion-thumbnail>
+      -->
+        <span>
+          <p>Id: {{list.Id}}</p>
+          <p>Firma Adı: {{ list.FirmaAdi}}</p>
+          <p>Web: {{list.Web}}</p>
+          <p>Mail: {{list.Mail}}</p>
+        <!--  <p>CommercialCode: {{list.CommercialCode}}</p>
+          
+          <p>Tipi: {{list.Type}}</p>
+          <p>Özel Kod 1: {{list.SpecialCode1}}</p>
+          <p>Özel Kod 2: {{list.SpecialCode2}}</p>
+          <p>Özel Kod 3: {{list.SpecialCode3}}</p>
+          <p>Özel Kod 4: {{list.SpecialCode4}}</p>
+
+          <p>CommercialCode: {{list.CommercialCode}}</p>
+          <p>Adres 1: {{list.Address1}}</p>
+          <p>Adres 2: {{list.Address2}}</p>
+          <p>Oluşturan Kullanıcı Id: {{list.CreatedUserId}}</p>
+          <p>Oluşturulma Tarihi: {{list.CreatedDate}}</p>
+          <p>Güncelleyen Kullanıcı Id {{list.ModifiedUserId}}</p>
+          <p>Güncelleme Tarihi: {{list.ModifiedDate}}</p>
+          <p>Sector : {{list.Sector}}</p>
+          <p>Durumu: {{list.Status}}</p>
+          <p>Referans: {{list.Reference}}</p>
+          <p>İlgili Şirket: {{list.RelatedCompany}}</p>
+          <p>Bölge: {{list.Region}}</p>
+          <p>Liste No: {{list.ListNo}}</p>
+          <p>Fatura Adresi: {{list.CompanyBillableAddress}}</p>
+        -->
+        </span>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+ 
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)" threshold="100px" *ngIf="page < totalPage ">
+  <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Yükleniyor...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+  <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Yükleniyor..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+-->
+</ion-content>

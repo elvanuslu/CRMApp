@@ -1,0 +1,11 @@
+page-firmalistesi {
+.platform-android .bar .title {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.platform-ios .bar .title {
+    display: table-cell;
+    vertical-align: middle;
+}
+}

@@ -38,7 +38,9 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  positive:  #3B5998,
+  SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4)
 );
 
 
@@ -83,6 +85,3 @@ $colors: (
 
 // Fonts
 // --------------------------------------------------
-
-@import "roboto";
-@import "noto-sans";

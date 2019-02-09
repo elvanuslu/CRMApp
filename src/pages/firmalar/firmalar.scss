@@ -1,0 +1,40 @@
+page-firmalar {
+  .term
+  {
+    padding-top: 20px;
+  }
+
+  .terms-checkbox-label
+  {
+    overflow: visible;
+    text-overflow: initial;
+    white-space: initial;
+    opacity: 0.5;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .error-message
+  {
+    color: red;
+  }
+}
+.fab {
+    contain: layout;
+}
+button[ion-fab] {
+        overflow: visible;
+        position: relative;
+
+        ion-label {
+            position: absolute;
+            top: -8px;
+            right: 40px;
+
+            color: white;
+            background-color: rgba(0,0,0,0.7);
+            line-height: 24px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+    }

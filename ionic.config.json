@@ -4,5 +4,12 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/api/web/listtable",
+      "proxyUrl": "http://demo.veribiscrm.com/api/web/listtable"
+    }
+  ]
+  
 }

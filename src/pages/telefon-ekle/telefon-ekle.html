@@ -1,0 +1,65 @@
+<!--
+  Generated template for the TelefonEklePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="positive">
+    <ion-title>Firma Telefon Ekle</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content no-bounce padding>
+  <ion-fab bottom right>
+    <button ion-fab (click)="scanBarcode()">Kaydet</button>
+  </ion-fab>
+<form [formGroup]="form" (ngSubmit)="SaveChanges(form.value)">
+
+  <ion-list>
+<ion-row class="app-icon-container">
+  <ion-col text-center>
+    <img src="http://www.veribis.com.tr/wp-content/uploads/2016/05/veribisLogo.png" />
+
+  </ion-col>
+</ion-row>
+
+<ion-item>
+  <ion-label>
+    <ion-spinner name="bubbles" *ngIf="this.Tip ==0"></ion-spinner>Tipi</ion-label>
+  <ion-select (ionChange)="logla($event)" okText="Tamam" cancelText="Vazgeç" formControlName="PhoneGroup" name="PhoneGroup">
+    <ion-option *ngFor="let list of this.Tip;let i = index" value={{list.Id}}>{{list.Title_tr}}</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label class="item item-input item-stacked-label" floating>
+    <p style="font-weight: bold">Numara</p>
+  </ion-label>
+  <ion-input type="tel" id="TelNo" name="PhoneNumber" formControlName="PhoneNumber" ></ion-input>
+  <button ion-button color="secondary" (click)="phoneCall(TelNo)" item-right>
+    <ion-icon name="call"></ion-icon>
+  </button>
+</ion-item>
+
+<ion-item>
+  <ion-label class="item item-input item-stacked-label" floating>
+    <p style="font-weight: bold">Dahili</p>
+  </ion-label>
+  <ion-input type="text" formControlName="Internal" name="Internal"></ion-input>
+</ion-item>
+
+  <ion-buttons start>
+    <button ion-button full icon-only (click)="FirmaTelefonKaydet()" color="primary">
+      <ion-icon name="call"></ion-icon>
+      Kaydet
+    </button>
+  </ion-buttons>
+  
+<ion-row class="sign-in-button-container">
+
+  </ion-row>
+
+  </ion-list>
+  </form>
+</ion-content>

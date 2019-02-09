@@ -1,18 +1,86 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
+<ion-menu [content]="content" class="my-side-menu" side="left">
+ 
+ <!-- <ion-header>
+    <ion-toolbar color="positive">
+      <ion-title>Ana Sayfa</ion-title>
     </ion-toolbar>
   </ion-header>
+-->
+  <ion-header>
+    <ion-toolbar class="user-profile">
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <div class="user-avatar">
+              <img src="http://www.veribis.com.tr/wp-content/uploads/2016/05/veribisLogo.png" />
+            </div>
+          </ion-col>
+          <ion-col padding-top col-8>
+            <h2 ion-text class="no-margin bold text-white">
+              VeribisCRM
+            </h2>
+            <span ion-text color="light">Customer</span>
+          </ion-col>
+        </ion-row>
+  
+        <ion-row no-padding class="other-data">
+          <ion-col no-padding class="column">
+            <button ion-button icon-left small full color="light" menuClose disabled>
+              <ion-icon name="contact"></ion-icon>
+              Profile
+            </button>
+          </ion-col>
+          <ion-col no-padding class="column">
+            <button ion-button icon-left small full color="light" menuClose (click)="logout()">
+              <ion-icon name="log-out"></ion-icon>
+              Çıkış
+            </button>
+          </ion-col>
+        </ion-row>
+  
+      </ion-grid>
+  
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="my-side-menu">
+  <!--  <ion-card text-center color="positive">
+      <img src="http://www.veribis.com.tr/wp-content/uploads/2016/05/veribisLogo.png" />
+      <img src="../assets/imgs/logo.png" class="custom-avatar"/>
+      <h2>Veribis Crm</h2>
+      <p>www.veribis.com.tr</p>
+      <hr>
+    </ion-card>
+  -->
+    <button menuClose ion-item detail-none (click)="openHomePage()" color="positive">
+      <ion-icon name="home"></ion-icon> Ana Sayfa
+    </button>
+    <button menuClose ion-item detail-none (click)="openAktivitelistePage()" color="positive">
+      <ion-icon name="people"></ion-icon> Aktiviteler
+    </button>
+    <button menuClose ion-item detail-none (click)="openKisiler()" color="positive">
+      <ion-icon name="contact"></ion-icon> Kişiler
+    </button>
+    <button menuClose ion-item detail-none (click)="openFirmalarPage()" color="positive">
+      <ion-icon name="briefcase"></ion-icon> Firmalar
+    </button>
+    <button menuClose ion-item detail-none (click)="openRaporlarPage()" color="positive">
+      <ion-icon name="paper"></ion-icon> Raporlar
+    </button>
+    
+    <button menuClose ion-item detail-none (click)="openAyarlarPage()" color="positive">
+      <ion-icon name="settings"></ion-icon> Ayarlar
+    </button>
+  <!--    <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" color="positive">
+      <ion-icon name="home"></ion-icon> {{p.title}}
+      </button> -->
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
   </ion-content>
-
+<ion-footer>
+<ion-toolbar color="positive">
+  <ion-title>veribis.com.tr</ion-title>
+</ion-toolbar>
+</ion-footer>
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->

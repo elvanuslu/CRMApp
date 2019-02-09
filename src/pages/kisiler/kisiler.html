@@ -1,0 +1,77 @@
+<!--
+  Generated template for the KisilerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="positive">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Kisiler</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+    <ion-fab top right>
+      <button ion-fab>Kaydet</button>
+      <ion-fab-list side="bottom">
+        <button ion-fab (click)="clickKaydet()">Kaydet
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button ion-fab>Sil</button>
+        <button ion-fab>Düzenle</button>
+      </ion-fab-list>
+    </ion-fab>
+<ion-card>
+  <ion-card-content>
+  <ion-list>
+  <ion-item>
+    <ion-label class="item item-input item-stacked-label" floating><p>İsim</p></ion-label>
+    <ion-input type="text"></ion-input>
+    <button ion-button color="first" (click)="Tamam('Pekiiii')" item-right></button>
+  </ion-item>
+  <ion-item>
+    <ion-label class="item item-input item-stacked-label" floating><p>Soyad</p></ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label class="item item-input item-stacked-label" floating><p>Firma Adı</p></ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label class="item item-input item-stacked-label" floating><p>E-Posta</p></ion-label>
+    <ion-input type="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label class="item item-input item-stacked-label" floating>
+      <p>Özel E-Posta</p>
+    </ion-label>
+    <ion-input type="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label class="item item-input item-stacked-label" floating>
+      <p>Şirket Cep Telefonu</p>
+    </ion-label>
+    <ion-input type="tel" type="tel" id="TelNo1" name="TelNo1" [(ngModel)]="TelNo1"></ion-input>
+    <button ion-button color="secondary" (click)="phoneCall(TelNo1)" item-right>
+      <ion-icon name="call"></ion-icon>
+    </button>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="item item-input item-stacked-label" floating>
+      <p>Özel Cep Telefonu</p>
+    </ion-label>
+    <ion-input type="tel" id="TelNo" name="TelNo" [(ngModel)]="TelNo"></ion-input>
+    <button ion-button color="secondary" (click)="phoneCall(TelNo)" item-right><ion-icon name="call"></ion-icon>
+    </button>
+  </ion-item>
+  </ion-list>
+  </ion-card-content>
+</ion-card>
+</ion-content>
+ 

@@ -1,0 +1,158 @@
+<!--
+  Generated template for the FirmalarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="positive">
+    <ion-title>Firmalar</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-fab bottom right>
+    <button ion-fab (click)="Kaydet()"  [disabled]="!(form.valid)">Kaydet</button>
+  </ion-fab>
+ <!--  <ion-fab bottom right>
+    <button ion-fab 
+      <button ion-fab (click)="Kaydet()">Kaydet</button>
+   <ion-fab-list side="top">
+      <button ion-fab (click)="Kaydet()" [disabled]="!(form.valid)">
+        <ion-icon name="create"></ion-icon>
+        <ion-label>Kaydet</ion-label>
+      </button>
+      <button ion-fab (click)="clickKaydet()">
+        <ion-icon name="hand"></ion-icon>
+        <ion-label>Sil</ion-label>
+      </button>
+      <button ion-fab (click)="clickKaydet()">
+        <ion-icon name="paper"></ion-icon>
+        <ion-label>Düzenle</ion-label>
+      </button>
+    </ion-fab-list>
+
+  </ion-fab>
+  -->
+
+
+   <!--    <button ion-button color="secondary" (click)="FirmalarListe()">
+      <ion-icon name="locate"></ion-icon>  Firmalar Listesi</button>
+   <button ion-button color="primary" (click)="getTarih()">
+        <ion-icon name="date"></ion-icon> Firmalar Listesi</button>-->
+
+<form [formGroup]="form" (ngSubmit)="SaveChanges(form.value)">
+  
+      <ion-list>
+        <ion-item>
+          <ion-label class="item item-input item-stacked-label" floating>
+            <p style="font-weight: bold">Firma Adı</p>
+          </ion-label>
+          <ion-input type="text" formControlName="FirmaAdi"   name="FirmaAdi"></ion-input>
+          <div [hidden]="!(this.form.controls['FirmaAdi'].hasError('required'))">Firma Adı Gerekli </div>
+        </ion-item>
+        <ion-item>
+          <ion-label class="item item-input item-stacked-label" floating>
+            <p style="font-weight: bold">Vergi Dairesi</p>
+          </ion-label>
+          <ion-input type="text" formControlName="VergiDairesi"  name="VergiDairesi"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="item item-input item-stacked-label" floating>
+            <p style="font-weight: bold">Vergi No</p>
+          </ion-label>
+          <ion-input type="number" formControlName="VergiNo"  name="VergiNo"></ion-input>
+        </ion-item>
+    <!--    <ion-item>
+          <ion-label class="item item-input item-stacked-label" floating>
+            <p style="font-weight: bold">Telefon</p>
+          </ion-label>
+          <ion-input type="tel" id="TelNo" name="TelNo" formControlName="TelNo"></ion-input>
+          <button ion-button color="secondary" (click)="phoneCall(TelNo)" item-right>
+            <ion-icon name="call"></ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+          <ion-label class="item item-input item-stacked-label" floating>
+            <p style="font-weight: bold">Fax</p>
+          </ion-label>
+          <ion-input type="tel" formControlName="Fax"  name="Fax"></ion-input>
+        </ion-item>
+      -->
+        <ion-item>
+          <ion-label class="item item-input item-stacked-label" floating>
+            <p style="font-weight: bold">Web</p>
+          </ion-label>
+          <ion-input type="url" formControlName="Web"  name="Web"></ion-input> 
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="item item-input item-stacked-label" floating>
+            <p style="font-weight: bold">E-Posta</p>
+          </ion-label>
+          <ion-input type="email" formControlName="Eposta"  name="Eposta"></ion-input>
+        </ion-item>
+     
+        <ion-item>
+          <ion-label>
+            <ion-spinner name="bubbles" *ngIf="this.Tip ==0"></ion-spinner>Tipi</ion-label>
+          <ion-select (ionChange)="logla($event)" okText="Tamam" cancelText="Vazgeç" formControlName="Tipi" name="Tipi">
+            <ion-option *ngFor="let list of this.Tip;let i = index" value={{list.Id}}>{{list.Title_tr}}</ion-option>
+          </ion-select>
+        
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-spinner name="bubbles" *ngIf="this.durumu ==0"></ion-spinner>Durumu</ion-label>
+          <ion-select (ionChange)="logla($event)" okText="Seç" cancelText="Vazgeç" formControlName="durumu" name="durumu">
+            <ion-option *ngFor="let list of this.durumu" value={{list.Id}}>{{list.Title_tr}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-spinner name="bubbles" *ngIf="this.sektor ==0"></ion-spinner>Sektörü</ion-label>
+          <ion-select (ionChange)="logla($event)" okText="Seç" cancelText="Vazgeç" formControlName="sektor" name="sektor">
+            <ion-option *ngFor="let list of this.sektor" value={{list.Id}}>{{list.Title_tr}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-spinner name="bubbles" *ngIf="this.rFirma ==0"></ion-spinner>İlişkili Firma</ion-label>
+          <ion-select (ionChange)="logla($event)" okText="Seç" cancelText="Vazgeç" formControlName="rFirma" name="rFirma">
+            <ion-option *ngFor="let list of this.rFirma" value={{list.Id}}>{{list.FirmaAdi}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-spinner name="bubbles" *ngIf="this.region ==0"></ion-spinner>Bölge</ion-label>
+          <ion-select (ionChange)="logla($event)" okText="Seç" cancelText="Vazgeç" formControlName="region" name="region">
+            <ion-option *ngFor="let list of this.region" value={{list.Id}}>{{list.Title_tr}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+     
+    </form>
+    <ion-item>
+      <p style="font-size:10px">Kaydet tuşuna bastıktan sonra adres ve telefon bilgilerini girebilirsiniz.</p>
+    </ion-item>
+      <ion-buttons  start>
+        <button ion-button full icon-only (click)="AdresEkle()" color="secondary">
+          <ion-icon name="book"></ion-icon>
+          Yeni Adres 
+        </button>
+      </ion-buttons>
+      <ion-buttons  start>
+        <button ion-button full icon-only (click)="TelefonEkle()" color="primary">
+          <ion-icon name="call"></ion-icon>
+          Yeni Telefon 
+        </button>
+      </ion-buttons>
+</ion-content>
+

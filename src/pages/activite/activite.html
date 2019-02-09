@@ -1,0 +1,101 @@
+<!--
+  Generated template for the ActivitePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar  color="positive">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Aktivite</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding class="animated fadeIn common-bg">
+  <ion-fab top right>
+    <button ion-fab>Kaydet</button>
+    <ion-fab-list side="bottom">
+      <button ion-fab (click)="clickKaydet()">
+        <ion-icon name="create"></ion-icon>
+        <ion-label>Kaydet</ion-label>
+      </button>
+      <button ion-fab (click)="clickKaydet()">
+        <ion-icon name="hand"></ion-icon>
+        <ion-label>Sil</ion-label>
+      </button>
+      <button ion-fab (click)="clickKaydet()">
+        <ion-icon name="paper"></ion-icon>
+        <ion-label>Düzenle</ion-label>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+  
+  
+  <button ion-button color="secondary">Kaydet/Kapat</button>
+  <button ion-button color="default"> iptal</button>
+  <button ion-button color="secondary">Sepete Ekle</button>
+  <button ion-button color="default" (click)="takePictures()">Foto Çek</button>
+  <button ion-button color="default" (click)="scanBarcode()">Raf Sayımı</button>
+  <button ion-button color="default">Aktüel</button>
+
+<ion-list id="aktiviteListe-list11">
+  <ion-item>
+    <ion-label floating>Firma Kişi</ion-label>
+    <ion-input type="text" [(ngModel)]="data.FirmaKisi" name="FirmaKisi" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="item item-input item-stacked-label" floating>Konu</ion-label>
+    <ion-input type="text" [(ngModel)]="data.Konu" name="Konu" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Yapacak Kişi</ion-label>
+    <ion-input type="text" [(ngModel)]="data.YapacakKisi" name="YapacakKisi" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Aktivite Tipi</ion-label>
+    <ion-input type="text" [(ngModel)]="data.AktiviteTipi" name="AktiviteTipi" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Ne Zaman</ion-label>
+    <ion-input type="text" [(ngModel)]="data.Nezaman" name="NeZaman" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Süre</ion-label>
+    <ion-input type="text" [(ngModel)]="data.Sure" name ="Sure" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Başlangıç</ion-label>
+    <ion-input type="text" [(ngModel)]="data.Baslangic" name="Baslangic" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Bitiş</ion-label>
+    <ion-input type="text" [(ngModel)]="data.Bitis" name="Bitis" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Proje</ion-label>
+    <ion-input type="text" [(ngModel)]="data.Proje" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Sonuç</ion-label>
+    <ion-input type="text" [(ngModel)]="data.Sonuc" name="Sonuc" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Nerede</ion-label>
+    <ion-input type="text" [(ngModel)]="data.Nerede" name="Nerede" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Yolda Geçen Süre</ion-label>
+    <ion-input type="text" [(ngModel)]="data.YoldaGecenSure" name="YoldaGecenSure" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+</ion-list>
+</ion-content>
